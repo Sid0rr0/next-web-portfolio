@@ -1,0 +1,5 @@
+.project {
+	height: calc(100vh - 3 * var(--size));
+	width: 100%;
+	background-color: aqua;
+}

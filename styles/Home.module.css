@@ -16,6 +16,23 @@
 	align-items: center;
 }
 
+#project_list {
+	position: absolute;
+	top: var(--size);
+	height: calc(100vh - 2 * var(--size));
+	width: 100%;
+	overflow: auto;
+}
+
+.project_list_item_title {
+	height: var(--size);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 1.6em;
+	padding-left: 1.5rem;
+}
+
 .head_foot {
 	height: var(--size);
 	width: 100%;
@@ -34,7 +51,7 @@
 	display: flex;
 	justify-content: space-between;
 	font-size: 2.4em;
-	padding: 0.5em;
+	padding: 1.5rem;
 }
 
 #footer {

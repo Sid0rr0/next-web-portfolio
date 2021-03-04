@@ -33,3 +33,7 @@ a:hover {
 * {
 	box-sizing: border-box;
 }
+
+.ReactCollapse--collapse {
+	transition: height 400ms;
+}
