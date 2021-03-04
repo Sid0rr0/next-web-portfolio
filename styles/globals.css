@@ -2,17 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--size: 75px;
+}
+
+@font-face {
+	font-family: ikob;
+	src: url("../public/happy-times-at-the-ikob_italic-webfont.woff");
+}
+
 html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-size: 10px;
+	font-family: "nimbus-sans-condensed", sans-serif;
+	color: black;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
 }
 
 * {
