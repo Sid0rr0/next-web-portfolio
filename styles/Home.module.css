@@ -64,5 +64,9 @@
 	bottom: 0;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
+	.project_list_item {
+		opacity: 0;
+		transition: opacity 600ms ease-in-out;
+	}
 }
