@@ -8,7 +8,7 @@ export default function ProjectList() {
 	const [projects, setProjects] = useState([])
 
 	useEffect(async () => {
-		fetch('http://localhost:1337/graphql', {
+		await fetch('http://localhost:1337/graphql', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -23,7 +23,6 @@ export default function ProjectList() {
 			})
 			.then(res => res.json())
 			.then(res => setProjects(res.data?.projects.map(project => {return {id: project.id, title: project.Title, isOpen: false }})));
-
 	}, [])
 
 
@@ -46,7 +45,7 @@ export default function ProjectList() {
 			: e.target.parentElement.style.opacity = 1
 	}
 
-	function returnCol(id, len) {
+	function getColor(id, len) {
 		const colors = [
 			`linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(0,0,255,0.6) 100%)`,
 			`linear-gradient(0deg, rgba(255,255,255,1) ${len}%, rgba(0,255,139,0.6) 100%)`,
@@ -61,7 +60,7 @@ export default function ProjectList() {
 		const el = e.target.parentElement;
 
 		if(!isOpen)
-			el.style.opacity === '0' ? el.style.opacity = 1 : el.style.opacity = 0
+			el.style.opacity === '1' ? el.style.opacity = 0 : el.style.opacity = 1;
 
 	}
 
@@ -69,7 +68,7 @@ export default function ProjectList() {
 			return (
 				<div 
 					key={project.id} 
-					style={project.isOpen ? { backgroundImage: returnCol(project.id, 80) } : null}
+					style={project.isOpen ? { backgroundImage: getColor(project.id, 80) } : null}
 					className={styles.project_list_item}
 					onMouseEnter={e => onHover(e, project.isOpen)}
 					onMouseLeave={e => onHover(e, project.isOpen)}
@@ -77,7 +76,7 @@ export default function ProjectList() {
 					<div 
 						className={styles.project_list_item_title}
 						onClick={e => handleClick(e, project)}
-						style={project.isOpen ? null : { backgroundImage: returnCol(project.id, 18) }}
+						style={project.isOpen ? null : { backgroundImage: getColor(project.id, 18) }}
 					>
 						{project?.title}
 					</div>

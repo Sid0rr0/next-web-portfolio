@@ -1,4 +1,20 @@
 .project {
 	height: calc(100vh - 3 * var(--size));
 	width: 100%;
+	padding: 0 1.5rem;
+	display: grid;
+	grid-template-columns: 75% 25%;
+}
+
+.carousel {
+	height: calc(100vh - 3 * var(--size));
+	padding-bottom: 1rem;
+}
+
+.description {
+	padding: 0 1rem;
+}
+
+.image {
+	height: calc(100vh - 3 * var(--size));
 }
