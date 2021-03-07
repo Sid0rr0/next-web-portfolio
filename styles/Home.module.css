@@ -64,6 +64,18 @@
 	bottom: 0;
 }
 
+.info {
+	height: calc(100vh - 2 * var(--size));
+	width: 100%;
+	padding: 0 1.5rem;
+	position: relative;
+	left: 0;
+	top: var(--size);
+	display: grid;
+	grid-template-columns: 75% 25%;
+	z-index: 10;
+}
+
 @media (min-width: 600px) {
 	.project_list_item {
 		opacity: 0;
