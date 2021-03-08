@@ -1,6 +1,6 @@
 import { Collapse } from 'react-collapse';
 import styles from '../styles/Project.module.css';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -41,10 +41,10 @@ export default function Project({isOpen}) {
 							showThumbs={false}
 						>
 							<div className={styles.image} >
-								<img src="1.jpg" />
+								<img src="1.jpg" className="galleryImg" />
 							</div>
 							<div className={styles.image} >
-								<img src="123.jpg" />
+								<img src="123.jpg" className="galleryImg" />
 							</div>
 						</Carousel>
 					</div>

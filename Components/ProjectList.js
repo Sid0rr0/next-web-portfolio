@@ -3,7 +3,9 @@ import styles from '../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 
 
-export default function ProjectList() {
+export default function ProjectList(props) {
+
+	console.log("ProjectList ", props)
 
 	const [projects, setProjects] = useState([])
 

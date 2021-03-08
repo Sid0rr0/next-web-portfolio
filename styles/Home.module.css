@@ -50,7 +50,7 @@
 
 	display: flex;
 	justify-content: space-between;
-	font-size: 2.4em;
+	font-size: 2.9em;
 	padding: 1.5rem;
 }
 
@@ -72,8 +72,22 @@
 	left: 0;
 	top: var(--size);
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 58% auto;
 	z-index: 10;
+	background-color: white;
+}
+
+#about {
+	height: calc(100vh - 2 * var(--size));
+	font-size: 1.6rem;
+	white-space: pre-wrap;
+	border: none;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#profileImage {
+	max-height: calc(100vh - 2 * var(--size));
 }
 
 @media (min-width: 600px) {

@@ -1,31 +1,38 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
 import styles from '../styles/Home.module.css';
+import { fetchAPI } from "../lib/api";
+import StrapiImage from '../Components/StrapiImage'
 
-export default function Info({ isOpen, Description, profileImage}) {
+import { useEffect, useState } from 'react'
+
+export default function Info({ isOpen, about }) {
+
+	console.log("Info", about.Description)
+
+	/*const [info, setInfo] = useState({})
+
+	useEffect(async () => {
+		const about = await fetchAPI("/about");
+
+		setInfo({description: about.Description, profileImage: about.ProfileImage})
+
+	}, [])*/
+
 
 	return (
 		<Collapse isOpened={isOpen}>
 			<div className={styles.info}>
-				<div>
-					galery
+				<div id={styles.profileImage}>
+					<StrapiImage image={about?.ProfileImage?.formats?.medium} imgClass="galleryImg" />
+					{/* <StrapiImage image={info.profileImage?.formats?.medium} imgClass="galleryImg" /> */}
+					{/* <img src="http://localhost:1337/uploads/medium_info_78b47ba2f7.jpg" className={styles.profileImg} /> */}
 				</div>
-				<pre>
-					{Description}
-				</pre>
+				<p id={styles.about}>
+					{/* {info.description} */}
+					{about.Description}
+				</p>
 			</div>
 		</Collapse>
 	)
-}
-
-export async function getStaticProps() {
-	const res = await fetchAPI("/about");
-
-	const about = await res.json()
-
-	return {
-		props: { about },
-
-		// description: about.Description, profileImage: about.ProfileImage
-	}
 }

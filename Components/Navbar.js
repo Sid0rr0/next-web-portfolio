@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css';
 import { useState } from 'react';
 import Info from './Info';
 
-export default function Navbar() {
+export default function Navbar({about}) {
 	const [infoOpen, setInfoOpen] = useState(false);
 
 	function handleClick(e) {
@@ -19,7 +19,7 @@ export default function Navbar() {
 				<a href="#" onClick={handleClick}>info</a>
 			</header>
 
-			<Info isOpen={infoOpen} />
+			<Info isOpen={infoOpen} about={about} />
 		</>
 	)
 }
