@@ -1,13 +1,16 @@
 import { Collapse } from 'react-collapse';
 import styles from '../styles/Project.module.css';
-import { useState, useEffect } from 'react';
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-export default function Project({isOpen}) {
+import StrapiImage from '../Components/StrapiImage'
 
-	const [projects, setProjects] = useState([])
+export default function Project({ project }) {
+
+	//console.log(project)
+
+/*	const [projects, setProjects] = useState([])
 
 	useEffect(async () => {
 		await fetch('http://localhost:1337/graphql', {
@@ -26,35 +29,28 @@ export default function Project({isOpen}) {
 		})
 			.then(res => res.json())
 			.then(res => setProjects(res.data?.projects));
-	}, [])
+	}, []) */
 
-	function renderThumbs() {
-		return
-	}
+	//console.log(project.Images)
+
+	const carousel = project.Images.map(image => 
+		<div className={styles.image} key={image.formats.medium.name} >
+			<StrapiImage image={image.formats.medium} imgClass="galleryImg" />
+		</div>
+	)
 
 	return (
-		<>
-			<Collapse isOpened={isOpen}>
-				<div className={styles.project}>
-					<div className={styles.carousel}>
-						<Carousel
-							showThumbs={false}
-						>
-							<div className={styles.image} >
-								<img src="1.jpg" className="galleryImg" />
-							</div>
-							<div className={styles.image} >
-								<img src="123.jpg" className="galleryImg" />
-							</div>
-						</Carousel>
-					</div>
-					<div className={styles.description}>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto sapiente id ab, culpa et unde cum at eaque voluptatum fugiat aperiam voluptatibus fugit magnam ipsam recusandae iure? Aperiam, reiciendis placeat?
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint eum itaque dolore, odio officiis nesciunt non excepturi rerum voluptates eveniet iure dolorem architecto nisi, dignissimos asperiores quasi minima consequuntur iusto.
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error ab obcaecati consequuntur amet earum? Ipsa cum, consectetur laudantium autem voluptatibus molestiae magnam neque nostrum officia laboriosam non debitis eveniet, est iure quidem iusto. Deleniti, provident voluptates! Perferendis deleniti quae magni nisi quia sit odit laborum eveniet. Temporibus enim perferendis vero dignissimos! Maiores, nobis. Pariatur provident praesentium perferendis distinctio magnam ad animi atque ipsa odio iusto tempore deleniti cum ut laborum vitae explicabo sint facere itaque beatae dolores, corrupti modi maxime odit? Qui aliquid unde atque id, deserunt odio sunt maiores dignissimos incidunt. Ut modi sint nulla obcaecati, dicta dolorum vel?
-					</div>
+		<Collapse isOpened={project.isOpen}>
+			<div className={styles.project}>
+				<div className={styles.carousel}>
+					<Carousel showThumbs={false}>
+						{carousel}
+					</Carousel>
 				</div>
-			</Collapse>
-		</>
+				<div className={styles.description}>
+					{project.Description}
+				</div>
+			</div>
+		</Collapse>
 	)
 }

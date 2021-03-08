@@ -3,28 +3,18 @@ import styles from '../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 
 
-export default function ProjectList(props) {
+export default function ProjectList({ projectList }) {
 
-	console.log("ProjectList ", props)
+	//console.log(projectList)
 
 	const [projects, setProjects] = useState([])
 
-	useEffect(async () => {
-		await fetch('http://localhost:1337/graphql', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				query: `
-						query {
-							projects {
-								Title
-								id
-							}
-						}`
-				}),
-			})
-			.then(res => res.json())
-			.then(res => setProjects(res.data?.projects.map(project => {return {id: project.id, title: project.Title, isOpen: false }})));
+	useEffect(() => {
+	
+		setProjects(projectList.map(r => {
+			return { ...r, isOpen: false }
+		}));
+
 	}, [])
 
 
@@ -66,6 +56,8 @@ export default function ProjectList(props) {
 
 	}
 
+	console.log(projects)
+
 	const p = projects.map(project => {
 			return (
 				<div 
@@ -80,9 +72,9 @@ export default function ProjectList(props) {
 						onClick={e => handleClick(e, project)}
 						style={project.isOpen ? null : { backgroundImage: getColor(project.id, 18) }}
 					>
-						{project?.title}
+						{project?.Title}
 					</div>
-					<Project isOpen={project.isOpen} />
+					<Project project={project} />
 				</div>
 			)
 		}

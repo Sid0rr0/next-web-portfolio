@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 
 export default function Info({ isOpen, about }) {
 
-	console.log("Info", about.Description)
+	//console.log("Info", about.Description)
 
 	/*const [info, setInfo] = useState({})
 
