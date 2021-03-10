@@ -15,7 +15,7 @@ export default function Navbar({about}) {
 	return (
 		<>
 			<header className={styles.head_foot} id={styles.header}>
-				<a hraf="#">L&#234; Th&#7883; Ho&#224;i</a>
+				<a href="#">L&#234; Th&#x1ECB; Ho&#224;i</a>
 				<a href="#" onClick={handleClick}>info</a>
 			</header>
 

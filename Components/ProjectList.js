@@ -4,9 +4,6 @@ import { useState, useEffect } from 'react';
 
 
 export default function ProjectList({ projectList }) {
-
-	//console.log(projectList)
-
 	const [projects, setProjects] = useState([])
 
 	useEffect(() => {
@@ -55,8 +52,6 @@ export default function ProjectList({ projectList }) {
 			el.style.opacity === '1' ? el.style.opacity = 0 : el.style.opacity = 1;
 
 	}
-
-	console.log(projects)
 
 	const p = projects.map(project => {
 			return (

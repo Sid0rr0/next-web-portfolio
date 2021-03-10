@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--size: 75px;
-}
-
 @font-face {
 	font-family: "RobotoCondensed-Regular";
+	/* src: url("../public/nimbus_sans_l_regular_condensed_italic.ttf"); */
 	src: url("../public/RobotoCondensed-Regular.ttf");
+}
+
+:root {
+	--size: 75px;
 }
 
 html,
