@@ -90,6 +90,10 @@
 	max-height: calc(100vh - 2 * var(--size));
 }
 
+.project_list_item {
+	overflow: hidden; /* hide margin from react-carousel iframe */
+}
+
 @media (min-width: 600px) {
 	.project_list_item {
 		opacity: 0;

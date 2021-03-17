@@ -3,20 +3,21 @@
 	width: 100%;
 	padding: 0 1.5rem;
 	display: grid;
-	grid-template-columns: 75% 25%;
+	grid-template-columns: 70% 30%;
 }
 
 .carousel {
 	height: calc(100vh - 3 * var(--size));
-	padding-bottom: 1rem;
+	/* padding-bottom: 1rem; */
 }
 
 .description {
-	padding: 0 1rem;
+	padding: 0 1.5rem;
 	font-size: 1.6em;
 	overflow: auto;
 }
 
 .image {
 	height: calc(100vh - 3 * var(--size));
+	margin: 0;
 }

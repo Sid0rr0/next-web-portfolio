@@ -7,19 +7,17 @@ export default function ProjectList({ projectList }) {
 	const [projects, setProjects] = useState([])
 
 	useEffect(() => {
-	
 		setProjects(projectList.map(r => {
 			return { ...r, isOpen: false }
 		}));
-
 	}, [])
 
 
 	const handleClick = (e, project) => {
 		setProjects(
 			projects.map(prevProject => {
-				return project.id === prevProject.id 
-					? { ...project, isOpen: !prevProject.isOpen } 
+				return project.id === prevProject.id
+					? { ...project, isOpen: !prevProject.isOpen }
 					: prevProject
 		}));
 
@@ -29,7 +27,7 @@ export default function ProjectList({ projectList }) {
 			e.target.scrollIntoView({ behavior: 'smooth', block: 'start' })
 		}, 350);
 
-		e.target.parentElement.style.opacity === 1 
+		e.target.parentElement.style.opacity === 1
 			? e.target.parentElement.style.opacity = 0
 			: e.target.parentElement.style.opacity = 1
 	}
@@ -55,14 +53,14 @@ export default function ProjectList({ projectList }) {
 
 	const p = projects.map(project => {
 			return (
-				<div 
-					key={project.id} 
+				<div
+					key={project.id}
 					style={project.isOpen ? { backgroundImage: getColor(project.id, 80) } : null}
 					className={styles.project_list_item}
 					onMouseEnter={e => onHover(e, project.isOpen)}
 					onMouseLeave={e => onHover(e, project.isOpen)}
 				>
-					<div 
+					<div
 						className={styles.project_list_item_title}
 						onClick={e => handleClick(e, project)}
 						style={project.isOpen ? null : { backgroundImage: getColor(project.id, 18) }}

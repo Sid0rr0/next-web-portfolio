@@ -6,18 +6,7 @@ import { fetchAPI } from "../lib/api";
 import { useState, useEffect } from 'react';
 
 export default function Home({ projectList, about }) {
-
-	//console.log({projects, about})
-
-	/* const [projectList, setProjectList] = useState([])
-
-	useEffect(async () => {
-		const res = await fetchAPI("/projects");
-
-		setProjectList(res);
-	}, [])
-
-	console.log(projectList) */
+	//console.log(projectList)
 
 	return (
 		<>
