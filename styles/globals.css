@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-	font-family: "RobotoCondensed-Regular";
-	/* src: url("../public/nimbus_sans_l_regular_condensed_italic.ttf"); */
-	src: url("../public/RobotoCondensed-Regular.ttf");
+	font-family: "Arial Narrow";
+	src: url("../public/arial-narrow.ttf");
 }
 
 :root {
@@ -17,7 +16,7 @@ body {
 	padding: 0;
 	margin: 0;
 	font-size: 10px;
-	font-family: "RobotoCondensed-Regular", sans-serif;
+	font-family: "Arial Narrow", arial;
 	color: black;
 }
 

@@ -9,10 +9,12 @@ export default function Project({ project }) {
 	//console.log(project)
 
 	let carousel = project.Images.map(image => (
-		<div className={styles.image} key={image.formats.large?.name || image.formats.medium.name}>
-			<StrapiImage image={image.formats?.large || image.formats.medium} imgClass="galleryImg" />
-		</div>
+		<StrapiImage image={image.formats?.large || image.formats.medium} imgClass="galleryImg" key={image.formats.large?.name || image.formats.medium.name} />
 	));
+
+	{/* <div className={styles.image} key={image.formats.large?.name || image.formats.medium.name}>
+		<StrapiImage image={image.formats?.large || image.formats.medium} imgClass="galleryImg" />
+	</div> */}
 
 	if (project?.Link) carousel.push(<YouTube key={project.Link} videoId={project.Link} className={styles.image} />)
 
