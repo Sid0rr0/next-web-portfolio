@@ -20,11 +20,59 @@ export default function Project({ project }) {
 
 	if (project?.Link) carousel.push(<YouTube key={project.Link} videoId={project.Link} className={styles.image} />)
 
+	const arrowStyles = {
+		position: 'absolute',
+		zIndex: 2,
+		top: 0,
+		width: '2.5em',
+		height: '100%',
+		cursor: 'pointer',
+		outline: 'none',
+		paddingBottom: '2em'
+	};
+
+	const arrowRight = {
+		width: 0,
+		height: 0,
+		borderTop: '1em solid transparent',
+		borderBottom: '1em solid transparent',
+		borderLeft: '1em solid white',
+		cursor: 'pointer',
+	}
+
+	const arrowLeft = {
+		width: 0,
+		height: 0,
+		borderTop: '1em solid transparent',
+		borderBottom: '1em solid transparent',
+		borderRight: '1em solid white',
+		cursor: 'pointer',
+		paddingLeft: '1em',
+	}
+
 	return (
 		<Collapse isOpened={project.isOpen}>
 			<div className={styles.project}>
 				<div className={styles.carousel}>
-					<Carousel showThumbs={false} showIndicators={false} showStatus={false}>
+					<Carousel
+						showThumbs={false}
+						showIndicators={false}
+						showStatus={false}
+						renderArrowNext={
+							(onClickHandler, hasNext, label) =>
+							hasNext && (
+								<button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, right: 0, }}>
+									<div style={{ ...arrowRight }}></div>
+								</button>
+						)}
+						renderArrowPrev={
+							(onClickHandler, hasPrev, label) =>
+								hasPrev && (
+									<button type="button" onClick={onClickHandler} title={label} style={{ ...arrowStyles, left: 0, }}>
+										<div style={{ ...arrowLeft }}></div>
+									</button>
+						)}
+					>
 						{carousel}
 					</Carousel>
 				</div>
