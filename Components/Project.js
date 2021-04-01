@@ -55,6 +55,7 @@ export default function Project({ project }) {
 			<div className={styles.project}>
 				<div className={styles.carousel}>
 					<Carousel
+						dynamicHeight={false}
 						showThumbs={false}
 						showIndicators={false}
 						showStatus={false}

@@ -1,7 +1,7 @@
 .project {
-	height: calc(100vh - 3 * var(--size));
+	max-height: calc(100vh - 3 * var(--size));
 	width: 100%;
-	padding: 0 1.5rem;
+	padding: 0 var(--paddingX);
 	display: grid;
 	grid-template-columns: 70% 30%;
 }
@@ -12,7 +12,7 @@
 }
 
 .description {
-	padding: 0 1.5rem;
+	padding: 0 var(--paddingX);
 	font-size: 1.6em;
 	overflow: auto;
 }

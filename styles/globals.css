@@ -9,6 +9,7 @@
 
 :root {
 	--size: 75px;
+	--paddingX: 1.5rem;
 }
 
 html,
@@ -42,7 +43,7 @@ a:hover {
 	object-fit: contain;
 	object-position: center center;
 	width: 100%;
-	height: calc(100vh - 3 * var(--size));
+	max-height: calc(100vh - 3 * var(--size));
 	/* height: 100%; */
 }
 
