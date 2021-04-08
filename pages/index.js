@@ -5,7 +5,7 @@ import { fetchAPI } from "../lib/api";
 
 import { useState, useEffect } from 'react';
 
-export default function Home({ projectList, about }) {
+export default function Home({ sortedPorjectList, about }) {
 	//console.log(projectList)
 
 	return (
@@ -13,7 +13,7 @@ export default function Home({ projectList, about }) {
 			<Navbar about={about} />
 
 			<main>
-				<ProjectList projectList={projectList} />
+				<ProjectList projectList={sortedPorjectList} />
 			</main>
 
 			<footer className={styles.head_foot} id={styles.footer}>
@@ -26,8 +26,10 @@ export async function getStaticProps() {
 	const projectList = await fetchAPI("/projects");
 	const about = await fetchAPI("/about");
 
+	const sortedPorjectList = projectList.sort((a, b) => { return new Date(b.updated_at) - new Date(a.updated_at)})
+
   return {
-	  props: { projectList, about },
+	  props: { sortedPorjectList, about },
 	  revalidate: 1,
   };
 }
