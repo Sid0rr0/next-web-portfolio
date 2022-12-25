@@ -18,7 +18,7 @@ export default function Project({ project }) {
 		<StrapiImage image={image.formats?.large || image.formats.medium} imgClass="galleryImg" />
 	</div> */}
 
-	if (project?.Link) carousel.push(<YouTube key={project.Link} videoId={project.Link} className={styles.image} />)
+	if (project?.Link) carousel.push(<YouTube key={project.Link} videoId={project.Link} className={styles.video} />)
 
 	const arrowStyles = {
 		position: 'absolute',

@@ -43,10 +43,16 @@ a:hover {
 	object-fit: contain;
 	object-position: center center;
 	width: 100%;
-	max-height: calc(100vh - 3 * var(--size));
-	/* height: 100%; */
 }
 
 .carousel .slide iframe {
-	margin: 0;
+	max-height: 200px;
+	width: 100% !important;
+    margin: 0 !important;
+}
+
+@media only screen and (min-width: 992px) {
+	.carousel .slide iframe {
+		max-height: none;
+	}
 }

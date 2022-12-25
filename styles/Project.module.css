@@ -1,23 +1,35 @@
 .project {
-	max-height: calc(100vh - 3 * var(--size));
 	width: 100%;
 	padding: 0 var(--paddingX);
-	display: grid;
-	grid-template-columns: 70% 30%;
+	display: flex;
+	flex-direction: column;
+}
+
+@media only screen and (min-width: 992px) {
+	.project {
+		display: grid;
+		grid-template-columns: 70% 30%;
+	}
 }
 
 .carousel {
-	height: calc(100vh - 3 * var(--size));
-	/* padding-bottom: 1rem; */
+	/* max-height: calc(100vh - 3 * var(--size)); */
 }
 
 .description {
-	padding: 0 var(--paddingX);
+	padding: 5px var(--paddingX);
 	font-size: 1.6em;
 	overflow: auto;
 }
 
-.image {
-	height: calc(100vh - 3 * var(--size));
+@media only screen and (min-width: 992px) {
+	.description {
+		padding: 0 var(--paddingX);
+	}
+}
+
+.video {
+	/* height: calc(100vh - 3 * var(--size)); */
 	margin: 0;
+	aspect-ratio: 22 / 11;
 }

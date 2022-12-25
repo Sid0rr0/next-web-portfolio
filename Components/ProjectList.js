@@ -8,16 +8,17 @@ export default function ProjectList({ projectList }) {
 
 	useEffect(() => {
 		setProjects(projectList.map(r => {
-			return { ...r, isOpen: false }
+			return { ...r, isOpen: false, opened: false }
 		}));
 	}, [])
 
 
 	const handleClick = (e, project) => {
+		// set isOpen on clicked project and disables hover after it's been opened
 		setProjects(
 			projects.map(prevProject => {
 				return project.id === prevProject.id
-					? { ...project, isOpen: !prevProject.isOpen }
+					? { ...project, isOpen: !prevProject.isOpen, opened: true }
 					: prevProject
 		}));
 
@@ -43,10 +44,10 @@ export default function ProjectList({ projectList }) {
 		return colors[id % colors.length]
 	}
 
-	function onHover(e, isOpen) {
+	function onHover(e, project) {
 		const el = e.target.parentElement;
 
-		if(!isOpen)
+		if(!project.isOpen && !project.opened)
 			el.style.opacity === '1' ? el.style.opacity = 0 : el.style.opacity = 1;
 
 	}
@@ -55,10 +56,10 @@ export default function ProjectList({ projectList }) {
 			return (
 				<div
 					key={project.id}
-					style={project.isOpen ? { backgroundImage: getColor(project.id, 80) } : null}
+					style={project.isOpen && project.opened ? { backgroundImage: getColor(project.id, 80) } : null}
 					className={styles.project_list_item}
-					onMouseEnter={e => onHover(e, project.isOpen)}
-					onMouseLeave={e => onHover(e, project.isOpen)}
+					onMouseEnter={e => onHover(e, project)}
+					onMouseLeave={e => onHover(e, project)}
 				>
 					<div
 						className={styles.project_list_item_title}
