@@ -45,8 +45,16 @@ a:hover {
 	width: 100%;
 }
 
+.carousel .slider {
+	height: 100% !important;
+}
+
+.carousel .slide > div {
+	height: 100% !important;
+}
+
 .carousel .slide iframe {
-	max-height: 200px;
+	height: 100% !important;
 	width: 100% !important;
     margin: 0 !important;
 }
@@ -55,4 +63,8 @@ a:hover {
 	.carousel .slide iframe {
 		max-height: none;
 	}
+}
+
+button:focus {
+	outline:0;
 }

@@ -13,13 +13,14 @@
 }
 
 .carousel {
-	/* max-height: calc(100vh - 3 * var(--size)); */
+	height: 100%;
 }
 
 .description {
 	padding: 5px var(--paddingX);
-	font-size: 1.6em;
+	font-size: 1.61rem;
 	overflow: auto;
+	white-space: pre-wrap;
 }
 
 @media only screen and (min-width: 992px) {
@@ -29,7 +30,5 @@
 }
 
 .video {
-	/* height: calc(100vh - 3 * var(--size)); */
 	margin: 0;
-	aspect-ratio: 22 / 11;
 }

@@ -3,24 +3,25 @@ import styles from '../styles/Home.module.css';
 import { useState, useEffect } from 'react';
 
 
-export default function ProjectList({ projectList }) {
-	const [projects, setProjects] = useState([])
+export default function ProjectList({ projectList, isArt, updateList }) {
+	console.log(projectList, isArt)
+	// const [projects, setProjects] = useState([])
 
-	useEffect(() => {
-		setProjects(projectList.map(r => {
-			return { ...r, isOpen: false, opened: false }
-		}));
-	}, [])
+	// useEffect(() => {
+	// 	setProjects(projectList)
+	// }, [projectList])
 
 
 	const handleClick = (e, project) => {
 		// set isOpen on clicked project and disables hover after it's been opened
-		setProjects(
-			projects.map(prevProject => {
-				return project.id === prevProject.id
-					? { ...project, isOpen: !prevProject.isOpen, opened: true }
-					: prevProject
-		}));
+		// setProjects(
+		// 	projects.map(prevProject => {
+		// 		return project.id === prevProject.id
+		// 			? { ...project, isOpen: !prevProject.isOpen, opened: true }
+		// 			: prevProject
+		// }));
+
+		updateList(project, isArt ? "art" : "design")
 
 
 		e.target.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -47,16 +48,19 @@ export default function ProjectList({ projectList }) {
 	function onHover(e, project) {
 		const el = e.target.parentElement;
 
+		// if (project.opened) {
+		// 	return
+		// }
+
 		if(!project.isOpen && !project.opened)
 			el.style.opacity === '1' ? el.style.opacity = 0 : el.style.opacity = 1;
-
 	}
 
-	const p = projects.map(project => {
+	const p = projectList.map(project => {
 			return (
 				<div
 					key={project.id}
-					style={project.isOpen && project.opened ? { backgroundImage: getColor(project.id, 80) } : null}
+					style={project.isOpen || project.opened ? { backgroundImage: getColor(project.id, 80), opacity: 1 } : null}
 					className={styles.project_list_item}
 					onMouseEnter={e => onHover(e, project)}
 					onMouseLeave={e => onHover(e, project)}
