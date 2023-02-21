@@ -6,8 +6,6 @@ import { fetchAPI } from "../lib/api";
 import { useState, useMemo, useEffect } from 'react';
 
 export default function Home({ sortedProjectList, about }) {
-	// console.log(sortedProjectList)
-
 	const [isArtSelected, setIsArtSelected] = useState(false)
 	const [artList, setArtList] = useState(() => sortedProjectList.filter(list => list.Type === "art"))
 	const [list, setList] = useState(() => sortedProjectList.filter(list => list.Type !== "art"))

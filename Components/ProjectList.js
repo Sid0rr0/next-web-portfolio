@@ -4,23 +4,7 @@ import { useState, useEffect } from 'react';
 
 
 export default function ProjectList({ projectList, isArt, updateList }) {
-	console.log(projectList, isArt)
-	// const [projects, setProjects] = useState([])
-
-	// useEffect(() => {
-	// 	setProjects(projectList)
-	// }, [projectList])
-
-
 	const handleClick = (e, project) => {
-		// set isOpen on clicked project and disables hover after it's been opened
-		// setProjects(
-		// 	projects.map(prevProject => {
-		// 		return project.id === prevProject.id
-		// 			? { ...project, isOpen: !prevProject.isOpen, opened: true }
-		// 			: prevProject
-		// }));
-
 		updateList(project, isArt ? "art" : "design")
 
 
@@ -47,10 +31,6 @@ export default function ProjectList({ projectList, isArt, updateList }) {
 
 	function onHover(e, project) {
 		const el = e.target.parentElement;
-
-		// if (project.opened) {
-		// 	return
-		// }
 
 		if(!project.isOpen && !project.opened)
 			el.style.opacity === '1' ? el.style.opacity = 0 : el.style.opacity = 1;
