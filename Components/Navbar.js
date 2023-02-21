@@ -17,7 +17,7 @@ export default function Navbar({about, headerStyles, changeList}) {
 	return (
 		<>
 			<header className={headerStyles} id={styles.header}>
-				<li className="w-full flex flex-row justify-between">
+				<li className={styles.header_nav}>
 					<ul>
 						<a href="#">L&#234; Th&#x1ECB; Ho&#224;i</a>
 					</ul>

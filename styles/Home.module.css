@@ -96,3 +96,10 @@
 		transition: opacity 600ms ease-in-out;
 	}
 }
+
+.header_nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
